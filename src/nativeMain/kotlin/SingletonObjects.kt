@@ -12,6 +12,7 @@ object  GlobalSingleton {
 //An attempt to mutate singleton will lead to exception
 fun mutateSingleton() {
     GlobalSingleton.i = 1
+    val o = GlobalSingleton.i // reading is fine
 }
 
 //A call to mutating function will also throw an exception
@@ -32,6 +33,7 @@ class ClassWithCompanion {
 
 fun mutateCompanionObject() {
     ClassWithCompanion.i = 1
+    val a = ClassWithCompanion.i
 }
 
 //BUT @ThreadLocal annotated singleton objects are mutable
