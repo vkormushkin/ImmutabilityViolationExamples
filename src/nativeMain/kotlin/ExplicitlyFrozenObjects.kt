@@ -5,11 +5,15 @@ import kotlin.native.concurrent.freeze
 fun mutateFrozen() {
     val data = SomeData("Test")
     data.freeze()
-    data.name = "new" //exception
+    data.name = "new1" //exception
+    var i = 0
+    i.freeze()
+    i++ //exception
+    println(i)
 }
 
-fun freezeThenMutate() {
+fun mutateThenFreeze() {
     val data = SomeData("Test")
-    data.name = "new" //no exception
+    data.name = "new2" //no exception
     data.freeze()
 }
